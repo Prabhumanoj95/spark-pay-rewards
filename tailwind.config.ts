@@ -7,12 +7,15 @@ export default {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "1rem",
       screens: {
-        "2xl": "1400px",
+        "2xl": "430px",
       },
     },
     extend: {
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -47,6 +50,16 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        spark: {
+          blue: "hsl(var(--spark-blue))",
+          "blue-dark": "hsl(var(--spark-blue-dark))",
+          "blue-light": "hsl(var(--spark-blue-light))",
+          gold: "hsl(var(--spark-gold))",
+          "gold-dark": "hsl(var(--spark-gold-dark))",
+          "gold-light": "hsl(var(--spark-gold-light))",
+          success: "hsl(var(--spark-success))",
+          "success-light": "hsl(var(--spark-success-light))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -62,23 +75,17 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "calc(var(--radius) + 4px)",
+        "2xl": "calc(var(--radius) + 8px)",
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
       },
       animation: {
