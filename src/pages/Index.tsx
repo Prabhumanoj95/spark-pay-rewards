@@ -15,11 +15,11 @@ const Index = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/20">
-              <span className="text-xl">⚡</span>
+              <span className="text-xl">👤</span>
             </div>
             <div>
-              <h1 className="text-lg font-bold text-white">Spark Money</h1>
-              <p className="text-xs text-white/70">Welcome, Manoj!</p>
+              <h1 className="text-lg font-bold text-white">Hi, Manoj</h1>
+              <p className="text-xs text-white/70">Welcome back!</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
