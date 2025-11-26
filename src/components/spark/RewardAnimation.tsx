@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useGoldBalance } from "@/context/GoldBalanceContext";
+import goldPotImage from "@/assets/gold-pot.png";
 
 interface RewardAnimationProps {
   amount: number;
@@ -43,12 +44,12 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
     <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-spark-gold-light via-spark-gold-light/50 to-background p-6">
       <div className="relative w-full max-w-sm space-y-8 text-center">
         {/* Golden Pot Container */}
-        <div className="relative mx-auto h-64 w-64">
+        <div className="relative mx-auto h-72 w-72">
           {/* Glow Effect */}
           {showGlow && (
             <div className="absolute inset-0 animate-pulse-glow">
-              <div className="absolute inset-8 rounded-full bg-spark-gold/40 blur-3xl" />
-              <div className="absolute inset-12 rounded-full bg-spark-gold/60 blur-2xl" />
+              <div className="absolute inset-4 rounded-full bg-amber-400/50 blur-3xl" />
+              <div className="absolute inset-8 rounded-full bg-amber-500/60 blur-2xl" />
             </div>
           )}
 
@@ -74,14 +75,14 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
           {/* Falling Coins Animation */}
           {showCoins && (
             <>
-              {[...Array(5)].map((_, i) => (
+              {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute animate-coin-drop"
                   style={{
-                    left: `${35 + i * 8}%`,
-                    top: "-20%",
-                    animationDelay: `${i * 0.15}s`,
+                    left: `${25 + i * 10}%`,
+                    top: "-10%",
+                    animationDelay: `${i * 0.2}s`,
                   }}
                 >
                   <span className="text-4xl drop-shadow-lg">🪙</span>
@@ -90,31 +91,18 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
             </>
           )}
 
-          {/* Gold Pot */}
+          {/* Gold Pot Image */}
           {showPot && (
             <div
               className={`relative flex h-full w-full items-center justify-center transition-transform duration-200 ${
                 shake ? "animate-shake" : ""
               }`}
             >
-              <div className="relative">
-                {/* Pot with gold coins */}
-                <div className="relative">
-                  <span className="text-[140px] drop-shadow-2xl filter brightness-110">🏺</span>
-                  
-                  {/* Stacked coins on top */}
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 flex gap-1">
-                    <span className="text-3xl animate-float" style={{ animationDelay: "0s" }}>🪙</span>
-                    <span className="text-4xl animate-float" style={{ animationDelay: "0.2s" }}>🪙</span>
-                    <span className="text-3xl animate-float" style={{ animationDelay: "0.4s" }}>🪙</span>
-                  </div>
-                  
-                  {/* Shimmer overlay */}
-                  {showGlow && (
-                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/20 to-transparent animate-shimmer rounded-full" />
-                  )}
-                </div>
-              </div>
+              <img 
+                src={goldPotImage} 
+                alt="Gold pot filled with coins" 
+                className="h-52 w-52 object-contain drop-shadow-2xl"
+              />
             </div>
           )}
         </div>
@@ -124,7 +112,7 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
           <div className="animate-slide-up space-y-4">
             <div className="space-y-3">
               <p className="text-xl font-semibold text-foreground">Congratulations! 🎉</p>
-              <p className="text-4xl font-bold text-spark-gold-dark drop-shadow-sm">
+              <p className="text-4xl font-bold text-amber-600 drop-shadow-sm">
                 You earned ₹{amount}!
               </p>
             </div>
