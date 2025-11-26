@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { Bell, User, Search } from "lucide-react";
 import GoldBalanceBanner from "@/components/spark/GoldBalanceBanner";
 import UPIOptions from "@/components/spark/UPIOptions";
 import RewardsBanner from "@/components/spark/RewardsBanner";
 import BBPSSection from "@/components/spark/BBPSSection";
+import { useGoldBalance } from "@/context/GoldBalanceContext";
 
 const Index = () => {
-  const [goldBalance] = useState(14000);
+  const { balance } = useGoldBalance();
 
   return (
     <div className="min-h-screen bg-background">
@@ -19,7 +19,7 @@ const Index = () => {
             </div>
             <div>
               <h1 className="text-lg font-bold text-white">Spark Money</h1>
-              <p className="text-xs text-white/70">Welcome back!</p>
+              <p className="text-xs text-white/70">Welcome, Manoj!</p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -40,7 +40,7 @@ const Index = () => {
       <main className="container space-y-5 py-5">
         {/* Gold Balance Banner */}
         <div className="animate-slide-up">
-          <GoldBalanceBanner balance={goldBalance} />
+          <GoldBalanceBanner balance={balance} />
         </div>
 
         {/* UPI Options */}

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Landmark, ChevronRight, AlertCircle, Calendar } from "lucide-react";
 import Header from "@/components/spark/Header";
 import { Button } from "@/components/ui/button";
-import SuccessScreen from "@/components/spark/SuccessScreen";
+import LoanSuccessScreen from "@/components/spark/LoanSuccessScreen";
 import RewardAnimation from "@/components/spark/RewardAnimation";
 
 type Step = "form" | "success" | "reward";
@@ -12,12 +12,12 @@ const LoanPayment = () => {
   const navigate = useNavigate();
   const [step, setStep] = useState<Step>("form");
 
-  const lenderName = "Shriram Finance";
+  const lenderName = "Shriram Finance Ltd";
   const customerName = "Manoj";
   const mobileNumber = "7358107051";
   const amountDue = 15000;
   const dueDate = "Today";
-  const loanAccountNo = "XXXX XXXX 4521";
+  const loanId = "123456XXXX";
 
   const handleProceed = () => {
     setStep("success");
@@ -37,16 +37,11 @@ const LoanPayment = () => {
 
   if (step === "success") {
     return (
-      <SuccessScreen
+      <LoanSuccessScreen
         amount={amountDue}
-        title="Payment Successful"
-        subtitle="Your loan EMI has been paid"
-        details={[
-          { label: "Lender", value: lenderName },
-          { label: "Customer Name", value: customerName },
-          { label: "Loan Account", value: loanAccountNo },
-          { label: "Transaction ID", value: "TXN" + Date.now().toString().slice(-8) },
-        ]}
+        customerName={customerName}
+        loanId={loanId}
+        dueDate={dueDate}
         onDone={handleSuccessDone}
       />
     );
@@ -68,7 +63,7 @@ const LoanPayment = () => {
               <p className="text-sm text-muted-foreground">Personal Loan</p>
               <div className="flex items-center gap-2 pt-1">
                 <span className="rounded-full bg-spark-blue-light px-3 py-1 text-xs font-semibold text-spark-blue">
-                  {loanAccountNo}
+                  {loanId}
                 </span>
               </div>
             </div>
