@@ -151,7 +151,12 @@
 @keyframes coin-drop {
   0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
   50% { opacity: 1; }
-  100% { transform: translateY(0) rotate(360deg); opacity: 1; }
+  100% { transform: translateY(100px) rotate(360deg); opacity: 0; }
+}
+
+@keyframes coin-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
 @keyframes sparkle {
@@ -160,14 +165,14 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px hsl(var(--spark-gold) / 0.4); }
-  50% { box-shadow: 0 0 40px hsl(var(--spark-gold) / 0.8); }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 @keyframes success-check {
-  0% { transform: scale(0) rotate(-45deg); opacity: 0; }
-  50% { transform: scale(1.2) rotate(-45deg); }
-  100% { transform: scale(1) rotate(-45deg); opacity: 1; }
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
 }
 
 @keyframes slide-up {
@@ -180,20 +185,29 @@
   100% { opacity: 1; }
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
 
 .animate-shake {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 0.3s ease-in-out;
 }
 
 .animate-coin-drop {
-  animation: coin-drop 0.8s ease-out forwards;
+  animation: coin-drop 1s ease-out forwards;
+}
+
+.animate-coin-bounce {
+  animation: coin-bounce 1.5s ease-in-out infinite;
 }
 
 .animate-sparkle {
-  animation: sparkle 0.6s ease-out forwards;
+  animation: sparkle 0.8s ease-out forwards;
 }
 
 .animate-pulse-glow {
@@ -210,4 +224,8 @@
 
 .animate-fade-in {
   animation: fade-in 0.3s ease-out forwards;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
 }
