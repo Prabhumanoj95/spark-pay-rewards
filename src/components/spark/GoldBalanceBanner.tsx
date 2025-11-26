@@ -24,14 +24,37 @@ const GoldBalanceBanner = ({ balance }: GoldBalanceBannerProps) => {
             <p className="text-2xl font-bold text-amber-900">₹{balance.toLocaleString()}</p>
           </div>
         </div>
-        <div className="relative">
-          {/* Gold pot with shimmer and bounce */}
-          <div className="animate-float">
-            <span className="text-5xl drop-shadow-lg">🏺</span>
+        
+        {/* Gold Pot with Coins Animation */}
+        <div className="relative h-20 w-20">
+          {/* Glow behind pot */}
+          <div className="absolute inset-0 bg-amber-400/30 rounded-full blur-xl animate-pulse-glow" />
+          
+          {/* The pot */}
+          <div className="relative flex items-center justify-center h-full">
+            <span className="text-5xl drop-shadow-lg animate-float">🏺</span>
+            
+            {/* Coins stacking/filling inside pot */}
+            <div className="absolute top-1 left-1/2 -translate-x-1/2 flex flex-col items-center">
+              <span className="text-lg animate-coin-bounce" style={{ animationDelay: "0s" }}>🪙</span>
+            </div>
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2">
+              <span className="text-xl animate-coin-bounce" style={{ animationDelay: "0.3s" }}>🪙</span>
+            </div>
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-4">
+              <span className="text-lg animate-coin-bounce" style={{ animationDelay: "0.6s" }}>🪙</span>
+            </div>
           </div>
-          {/* Bouncing coin */}
-          <div className="absolute -top-2 left-1/2 -translate-x-1/2 animate-coin-bounce">
-            <span className="text-2xl">🪙</span>
+          
+          {/* Sparkle effects */}
+          <div className="absolute top-0 right-0 animate-sparkle" style={{ animationDelay: "0s" }}>
+            <span className="text-xs">✨</span>
+          </div>
+          <div className="absolute bottom-2 left-0 animate-sparkle" style={{ animationDelay: "0.4s" }}>
+            <span className="text-xs">✨</span>
+          </div>
+          <div className="absolute top-1/2 right-0 animate-sparkle" style={{ animationDelay: "0.8s" }}>
+            <span className="text-xs">✨</span>
           </div>
         </div>
       </div>
