@@ -24,11 +24,11 @@ const GoldBalanceBanner = ({ balance }: GoldBalanceBannerProps) => {
         </div>
         
         {/* Static Gold Pot Image */}
-        <div className="relative h-20 w-20">
+        <div className="relative -mr-2 -mb-5">
           <img 
             src={goldPotImage} 
             alt="Gold pot filled with coins" 
-            className="h-full w-full object-contain drop-shadow-lg"
+            className="h-24 w-24 object-contain drop-shadow-lg"
           />
         </div>
       </div>

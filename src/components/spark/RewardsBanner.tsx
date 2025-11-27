@@ -33,7 +33,7 @@ const RewardsBanner = () => {
       <div className="mb-4 flex items-center gap-2">
         <Gift className="h-5 w-5 text-spark-gold" />
         <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide">
-          Earn Rewards
+          Earn Gold Rewards
         </h3>
       </div>
       <div className="space-y-3">
