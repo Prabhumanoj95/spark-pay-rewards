@@ -64,15 +64,15 @@ const GoldPot = ({
 
   return (
     <div className={`relative ${config.container} flex items-center justify-center`}>
-      {/* Ambient glow - always visible, intensity based on fill */}
+      {/* Ambient glow - premium gold tones */}
       <div 
-        className="absolute inset-0 animate-pulse-glow opacity-60"
-        style={{ opacity: 0.3 + (localFill / 100) * 0.4 }}
+        className="absolute inset-0 animate-pulse-glow"
+        style={{ opacity: 0.4 + (localFill / 100) * 0.4 }}
       >
         <div 
           className="absolute inset-4 rounded-full blur-2xl transition-all duration-500"
           style={{
-            background: `radial-gradient(circle, hsl(var(--spark-gold) / 0.5) 0%, transparent 70%)`,
+            background: `radial-gradient(circle, hsl(var(--spark-gold-highlight) / 0.6) 0%, hsl(var(--spark-gold-mid) / 0.3) 50%, transparent 70%)`,
           }}
         />
       </div>
@@ -120,24 +120,24 @@ const GoldPot = ({
         {/* Shimmer overlay - idle animation */}
         <div className="absolute inset-0 animate-shimmer rounded-full opacity-30 pointer-events-none z-20" />
         
-        {/* Fill level glow effect */}
+        {/* Fill level glow effect - premium gold gradient */}
         <div 
           className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full blur-xl transition-all duration-700"
           style={{
             width: `${config.glowSize + localFill * 0.5}px`,
             height: `${config.glowSize * 0.5 + localFill * 0.3}px`,
-            background: `radial-gradient(ellipse, hsl(var(--spark-gold) / 0.6) 0%, hsl(var(--spark-gold) / 0.2) 50%, transparent 80%)`,
-            opacity: 0.4 + (localFill / 100) * 0.5
+            background: `radial-gradient(ellipse, hsl(var(--spark-gold-highlight) / 0.7) 0%, hsl(var(--spark-gold-mid) / 0.4) 50%, transparent 80%)`,
+            opacity: 0.5 + (localFill / 100) * 0.4
           }}
         />
 
-        {/* Gold Pot Image */}
+        {/* Gold Pot Image with premium shadow */}
         <img 
           src={goldPotImage} 
           alt="Gold pot filled with coins" 
-          className={`${config.pot} object-contain drop-shadow-lg relative z-10`}
+          className={`${config.pot} object-contain relative z-10`}
           style={{
-            filter: `drop-shadow(0 8px 16px hsl(var(--spark-gold) / 0.3))`,
+            filter: `drop-shadow(0 10px 20px hsl(var(--spark-gold-deep) / 0.35)) drop-shadow(0 4px 8px hsl(var(--spark-gold-mid) / 0.2))`,
           }}
         />
 
