@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useGoldBalance } from "@/context/GoldBalanceContext";
-import goldPotImage from "@/assets/gold-pot.png";
+import goldPotImage from "@/assets/gold-pot-illustrated.png";
 
 interface RewardAnimationProps {
   amount: number;
@@ -16,13 +16,15 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
   const [showText, setShowText] = useState(false);
   const [shake, setShake] = useState(false);
   const [rewardAdded, setRewardAdded] = useState(false);
+  const [fillLevel, setFillLevel] = useState(0);
 
   useEffect(() => {
     const timeline = [
       { delay: 200, action: () => setShowPot(true) },
       { delay: 600, action: () => setShowCoins(true) },
-      { delay: 1000, action: () => setShake(true) },
-      { delay: 1200, action: () => setShowGlow(true) },
+      { delay: 800, action: () => setFillLevel(30) },
+      { delay: 1000, action: () => { setShake(true); setFillLevel(60); } },
+      { delay: 1200, action: () => { setShowGlow(true); setFillLevel(100); } },
       { delay: 1400, action: () => setShake(false) },
       { delay: 1600, action: () => setShowText(true) },
       { delay: 1800, action: () => {
@@ -75,17 +77,17 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
           {/* Falling Coins Animation */}
           {showCoins && (
             <>
-              {[...Array(6)].map((_, i) => (
+              {[...Array(8)].map((_, i) => (
                 <div
                   key={i}
                   className="absolute animate-coin-drop"
                   style={{
-                    left: `${25 + i * 10}%`,
-                    top: "-10%",
-                    animationDelay: `${i * 0.2}s`,
+                    left: `${20 + i * 8}%`,
+                    top: "-15%",
+                    animationDelay: `${i * 0.15}s`,
                   }}
                 >
-                  <span className="text-4xl drop-shadow-lg">🪙</span>
+                  <span className="text-3xl drop-shadow-lg">🪙</span>
                 </div>
               ))}
             </>
@@ -98,11 +100,36 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
                 shake ? "animate-shake" : ""
               }`}
             >
+              {/* Fill level glow effect */}
+              <div 
+                className="absolute bottom-16 left-1/2 -translate-x-1/2 rounded-full bg-amber-400/60 blur-xl transition-all duration-500"
+                style={{
+                  width: `${60 + fillLevel}px`,
+                  height: `${30 + fillLevel * 0.5}px`,
+                  opacity: fillLevel / 100
+                }}
+              />
+              
               <img 
                 src={goldPotImage} 
                 alt="Gold pot filled with coins" 
-                className="h-52 w-52 object-contain drop-shadow-2xl"
+                className="h-56 w-56 object-contain drop-shadow-2xl relative z-10"
               />
+              
+              {/* Bouncing coins on top of pot */}
+              {showCoins && fillLevel > 50 && (
+                <div className="absolute top-12 left-1/2 -translate-x-1/2 flex gap-1">
+                  {[...Array(3)].map((_, i) => (
+                    <span 
+                      key={i} 
+                      className="text-2xl animate-bounce"
+                      style={{ animationDelay: `${i * 0.1}s` }}
+                    >
+                      🪙
+                    </span>
+                  ))}
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -118,7 +145,7 @@ const RewardAnimation = ({ amount, onComplete }: RewardAnimationProps) => {
             </div>
 
             <p className="text-sm text-muted-foreground">
-              The reward has been added to your Gold Balance
+              Gold reward added to your balance
             </p>
 
             <div className="pt-6">
