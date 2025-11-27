@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Landmark, ChevronRight, AlertCircle, Calendar } from "lucide-react";
+import { ChevronRight, AlertCircle, Calendar } from "lucide-react";
 import Header from "@/components/spark/Header";
 import { Button } from "@/components/ui/button";
 import LoanSuccessScreen from "@/components/spark/LoanSuccessScreen";
 import RewardAnimation from "@/components/spark/RewardAnimation";
+import shriramLogo from "@/assets/shriram-finance-logo.png";
 
 type Step = "form" | "success" | "reward";
 
@@ -52,11 +53,15 @@ const LoanPayment = () => {
       <Header title="Loan Payment" />
 
       <main className="container space-y-5 py-5">
-        {/* Lender Card */}
+        {/* Lender Card with Official Shriram Finance Logo */}
         <div className="animate-slide-up rounded-2xl bg-card p-5 shadow-card">
           <div className="flex items-start gap-4">
-            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-amber-100">
-              <Landmark className="h-8 w-8 text-amber-600" />
+            <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white border border-border overflow-hidden p-2">
+              <img 
+                src={shriramLogo} 
+                alt="Shriram Finance Ltd" 
+                className="h-full w-full object-contain"
+              />
             </div>
             <div className="flex-1 space-y-1">
               <p className="text-lg font-bold text-foreground">{lenderName}</p>

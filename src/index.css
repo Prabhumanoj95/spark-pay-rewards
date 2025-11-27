@@ -40,15 +40,22 @@
     --spark-blue: 221 100% 50%;
     --spark-blue-dark: 221 100% 40%;
     --spark-blue-light: 221 100% 95%;
-    --spark-gold: 45 100% 50%;
-    --spark-gold-dark: 40 100% 45%;
-    --spark-gold-light: 45 100% 90%;
+    
+    /* Premium Gold Tones - Authentic metallic gold */
+    --spark-gold: 43 85% 55%;
+    --spark-gold-dark: 38 75% 42%;
+    --spark-gold-light: 45 90% 92%;
+    --spark-gold-highlight: 48 95% 72%;
+    --spark-gold-mid: 43 80% 56%;
+    --spark-gold-deep: 36 70% 45%;
+    
     --spark-success: 145 80% 42%;
     --spark-success-light: 145 80% 95%;
 
     /* Gradients as CSS variables */
     --gradient-spark: linear-gradient(135deg, hsl(221 100% 50%) 0%, hsl(221 100% 40%) 100%);
-    --gradient-gold: linear-gradient(135deg, hsl(45 100% 55%) 0%, hsl(35 100% 45%) 100%);
+    --gradient-gold: linear-gradient(145deg, hsl(48 95% 72%) 0%, hsl(43 80% 56%) 40%, hsl(36 70% 45%) 100%);
+    --gradient-gold-pot: linear-gradient(180deg, hsl(48 95% 72%) 0%, hsl(43 80% 56%) 50%, hsl(36 70% 45%) 100%);
     --gradient-success: linear-gradient(135deg, hsl(145 80% 45%) 0%, hsl(160 70% 40%) 100%);
 
     --sidebar-background: 0 0% 98%;
