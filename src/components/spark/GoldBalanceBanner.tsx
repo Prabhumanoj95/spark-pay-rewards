@@ -1,14 +1,9 @@
 import { Coins } from "lucide-react";
-import goldPotImage from "@/assets/gold-pot-illustrated.png";
+import GoldPot from "./GoldPot";
+import { useGoldBalance } from "@/context/GoldBalanceContext";
 
-interface GoldBalanceBannerProps {
-  balance: number;
-}
-
-const GoldBalanceBanner = ({ balance }: GoldBalanceBannerProps) => {
-  // Calculate fill level based on balance (0-100%)
-  // Assuming max balance of 50000 for full pot
-  const fillPercentage = Math.min((balance / 50000) * 100, 100);
+const GoldBalanceBanner = () => {
+  const { balance, fillLevel } = useGoldBalance();
   
   return (
     <div className="relative overflow-hidden rounded-2xl gradient-gold p-5 shadow-gold">
@@ -27,29 +22,9 @@ const GoldBalanceBanner = ({ balance }: GoldBalanceBannerProps) => {
           </div>
         </div>
         
-        {/* Illustrated Gold Pot with fill indicator */}
-        <div className="relative -mr-2 -mb-5">
-          {/* Sparkle effects around pot */}
-          <div className="absolute -inset-2 animate-pulse-glow opacity-60">
-            <div className="absolute inset-0 rounded-full bg-amber-400/30 blur-xl" />
-          </div>
-          
-          {/* Gold Pot Image */}
-          <img 
-            src={goldPotImage} 
-            alt="Gold pot filled with coins" 
-            className="h-28 w-28 object-contain drop-shadow-lg relative z-10"
-          />
-          
-          {/* Fill level indicator - subtle glow that increases with balance */}
-          <div 
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-amber-500/40 blur-md transition-all duration-500"
-            style={{
-              width: `${40 + fillPercentage * 0.4}px`,
-              height: `${20 + fillPercentage * 0.2}px`,
-              opacity: 0.3 + (fillPercentage / 100) * 0.5
-            }}
-          />
+        {/* Unified Gold Pot Component */}
+        <div className="-mr-2 -mb-8">
+          <GoldPot fillLevel={fillLevel} size="sm" />
         </div>
       </div>
     </div>

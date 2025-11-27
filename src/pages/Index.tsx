@@ -3,11 +3,8 @@ import GoldBalanceBanner from "@/components/spark/GoldBalanceBanner";
 import UPIOptions from "@/components/spark/UPIOptions";
 import RewardsBanner from "@/components/spark/RewardsBanner";
 import BBPSSection from "@/components/spark/BBPSSection";
-import { useGoldBalance } from "@/context/GoldBalanceContext";
 
 const Index = () => {
-  const { balance } = useGoldBalance();
-
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -40,7 +37,7 @@ const Index = () => {
       <main className="container space-y-5 py-5">
         {/* Gold Balance Banner */}
         <div className="animate-slide-up">
-          <GoldBalanceBanner balance={balance} />
+          <GoldBalanceBanner />
         </div>
 
         {/* UPI Options */}
