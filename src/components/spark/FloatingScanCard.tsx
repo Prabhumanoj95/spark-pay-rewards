@@ -22,7 +22,7 @@ const FloatingScanCard = () => {
         </div>
         
         {/* Label */}
-        <span className="text-[10px] font-semibold text-spark-gold-deep drop-shadow-sm">
+        <span className="text-[10px] font-semibold text-spark-gold-deep drop-shadow-sm text-center w-full">
           Scan & Pay
         </span>
       </div>
