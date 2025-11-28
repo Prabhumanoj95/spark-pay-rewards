@@ -40,19 +40,19 @@ const Index = () => {
           <GoldBalanceBanner />
         </div>
 
-        {/* UPI Options */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
-          <UPIOptions />
-        </div>
-
         {/* Rewards Banner */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
+        <div className="animate-slide-up" style={{ animationDelay: "0.1s" }}>
           <RewardsBanner />
         </div>
 
         {/* BBPS Section */}
-        <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
+        <div className="animate-slide-up" style={{ animationDelay: "0.2s" }}>
           <BBPSSection />
+        </div>
+
+        {/* UPI Options */}
+        <div className="animate-slide-up" style={{ animationDelay: "0.3s" }}>
+          <UPIOptions />
         </div>
       </main>
 
