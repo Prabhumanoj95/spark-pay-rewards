@@ -43,7 +43,22 @@ const BBPSSection = () => {
         </span>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        {services.map(service => {})}
+        {services.map((service) => (
+          <button
+            key={service.label}
+            onClick={() => service.path !== "#" && navigate(service.path)}
+            className="group flex flex-col items-center gap-2 transition-transform hover:scale-105 active:scale-95"
+          >
+            <div
+              className={`flex h-14 w-14 items-center justify-center rounded-2xl ${service.color} shadow-md transition-shadow group-hover:shadow-lg`}
+            >
+              <service.icon className="h-6 w-6" />
+            </div>
+            <span className="text-xs font-medium text-foreground text-center leading-tight">
+              {service.label}
+            </span>
+          </button>
+        ))}
       </div>
     </div>;
 };
