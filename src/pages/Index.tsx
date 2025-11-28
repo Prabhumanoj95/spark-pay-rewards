@@ -3,6 +3,7 @@ import GoldBalanceBanner from "@/components/spark/GoldBalanceBanner";
 import UPIOptions from "@/components/spark/UPIOptions";
 import RewardsBanner from "@/components/spark/RewardsBanner";
 import BBPSSection from "@/components/spark/BBPSSection";
+import FloatingScanCard from "@/components/spark/FloatingScanCard";
 
 const Index = () => {
   return (
@@ -56,6 +57,9 @@ const Index = () => {
         </div>
       </main>
 
+      {/* Floating Scan & Pay Card */}
+      <FloatingScanCard />
+
       {/* Bottom Navigation Placeholder */}
       <div className="fixed bottom-0 left-0 right-0 border-t border-border bg-card px-4 py-3 shadow-lg">
         <div className="mx-auto flex max-w-md items-center justify-around">
@@ -78,8 +82,8 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Bottom spacing for nav */}
-      <div className="h-20" />
+      {/* Bottom spacing for nav and floating card */}
+      <div className="h-36" />
     </div>
   );
 };

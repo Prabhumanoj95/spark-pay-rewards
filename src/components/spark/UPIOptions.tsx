@@ -1,8 +1,7 @@
-import { Send, QrCode, Building2, RefreshCw } from "lucide-react";
+import { Send, Building2, RefreshCw } from "lucide-react";
 
 const options = [
   { icon: Send, label: "Send Money", color: "bg-blue-500" },
-  { icon: QrCode, label: "Scan & Pay", color: "bg-purple-500" },
   { icon: Building2, label: "Bank Transfer", color: "bg-green-500" },
   { icon: RefreshCw, label: "Self Transfer", color: "bg-orange-500" },
 ];
@@ -13,7 +12,7 @@ const UPIOptions = () => {
       <h3 className="mb-4 text-sm font-semibold text-muted-foreground uppercase tracking-wide">
         Money Transfers
       </h3>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-3 gap-4">
         {options.map((option) => (
           <button
             key={option.label}
