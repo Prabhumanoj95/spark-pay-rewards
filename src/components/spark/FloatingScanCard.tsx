@@ -2,39 +2,29 @@ import { ScanLine } from "lucide-react";
 
 const FloatingScanCard = () => {
   return (
-    <button className="fixed bottom-20 left-4 right-4 z-40 mx-auto max-w-md animate-float">
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-spark-gold-highlight via-spark-gold-mid to-spark-gold-deep p-4 shadow-gold">
-        {/* Glass overlay */}
-        <div className="absolute inset-0 bg-white/20 backdrop-blur-sm" />
-        
-        {/* Glow effect */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-spark-gold-highlight/40 via-spark-gold-mid/40 to-spark-gold-highlight/40 blur-xl opacity-60" />
-        
-        <div className="relative flex items-center gap-4">
-          {/* Icon container */}
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/30 shadow-inner">
-            <ScanLine className="h-6 w-6 text-spark-gold-deep" />
-          </div>
+    <button className="fixed bottom-20 left-1/2 -translate-x-1/2 z-40 animate-float group">
+      {/* Outer glow */}
+      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-spark-gold-highlight via-spark-gold-mid to-spark-gold-deep blur-lg opacity-50 scale-110" />
+      
+      {/* Main button */}
+      <div className="relative flex flex-col items-center gap-1">
+        {/* Icon container */}
+        <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-spark-gold-highlight via-spark-gold-mid to-spark-gold-deep shadow-gold transition-transform group-hover:scale-105 group-active:scale-95">
+          {/* Inner highlight */}
+          <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/30 to-transparent" />
           
-          {/* Text content */}
-          <div className="flex-1 text-left">
-            <h3 className="text-base font-bold text-spark-gold-deep">
-              Scan & Pay
-            </h3>
-            <p className="text-xs text-spark-gold-deep/80">
-              Earn gold rewards when you receive payments
-            </p>
-          </div>
+          {/* Icon */}
+          <ScanLine className="relative h-7 w-7 text-white drop-shadow-md" />
           
-          {/* Arrow indicator */}
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/30">
-            <span className="text-spark-gold-deep">→</span>
-          </div>
+          {/* Sparkle decorations */}
+          <div className="absolute -top-1 -right-1 h-2 w-2 animate-sparkle rounded-full bg-white/80" />
+          <div className="absolute -bottom-0.5 -left-0.5 h-1.5 w-1.5 animate-sparkle rounded-full bg-white/60" style={{ animationDelay: '0.5s' }} />
         </div>
         
-        {/* Sparkle decorations */}
-        <div className="absolute top-2 right-12 h-2 w-2 animate-sparkle rounded-full bg-white/60" />
-        <div className="absolute bottom-3 left-16 h-1.5 w-1.5 animate-sparkle rounded-full bg-white/50" style={{ animationDelay: '0.3s' }} />
+        {/* Label */}
+        <span className="text-[10px] font-semibold text-spark-gold-deep drop-shadow-sm">
+          Scan & Pay
+        </span>
       </div>
     </button>
   );
